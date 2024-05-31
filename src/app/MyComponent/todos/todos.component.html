@@ -1,6 +1,13 @@
 <div>
-    @for (todo of todos; track todo.sno) {
+    <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+
+    @if (this.todos.length == 0){
+     No Todos to display
+    }
+    @else {
+        @for (todo of todos; track todo.sno) {
         <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)"></app-todo-item>
+        }
     }
 </div>
 
